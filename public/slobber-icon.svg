@@ -1,0 +1,26 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- Animated Slobber Droplet -->
+  <defs>
+    <radialGradient id="slobberGradient" cx="30%" cy="30%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.8" />
+      <stop offset="50%" style="stop-color:#e5e5e5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#cccccc;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+
+  <!-- Main droplet shape -->
+  <ellipse cx="32" cy="36" rx="18" ry="24" fill="url(#slobberGradient)" stroke="#999999" stroke-width="2">
+    <animate attributeName="cy" values="36;38;36" dur="1s" repeatCount="indefinite" />
+    <animate attributeName="ry" values="24;26;24" dur="1s" repeatCount="indefinite" />
+  </ellipse>
+
+  <!-- Shine effect -->
+  <ellipse cx="26" cy="26" rx="6" ry="8" fill="#ffffff" opacity="0.6">
+    <animate attributeName="opacity" values="0.6;0.8;0.6" dur="1s" repeatCount="indefinite" />
+  </ellipse>
+
+  <!-- Small droplet -->
+  <circle cx="32" cy="10" r="4" fill="url(#slobberGradient)" stroke="#999999" stroke-width="1">
+    <animate attributeName="cy" values="10;12;10" dur="1s" repeatCount="indefinite" begin="0.5s" />
+  </circle>
+</svg>

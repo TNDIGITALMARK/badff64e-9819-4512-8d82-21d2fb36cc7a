@@ -19,8 +19,19 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Elegant Flora Boutique",
-  description: "Beautiful AI-powered website creation platform",
+  title: "SLOBBERER - Can You Dodge the Drool?",
+  description: "A hilariously absurd cartoon arcade game where you dodge flying slobber from over-excited dogs! Fun, viral, and meme-ready!",
+  keywords: ["game", "arcade", "dog game", "browser game", "funny game", "casual game", "slobber", "cartoon game"],
+  authors: [{ name: "Slobberer Game Studio" }],
+  openGraph: {
+    title: "SLOBBERER - Can You Dodge the Drool?",
+    description: "Dodge flying slobber from cartoon dogs in this hilarious arcade game!",
+    type: "website",
+  },
+  icons: {
+    icon: '/slobber-icon.svg',
+    apple: '/slobber-icon.svg',
+  },
 };
 
 export default function RootLayout({

@@ -1,59 +1,78 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Bangers&family=Luckiest+Guy&display=swap');
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* SLOBBERER GAME DESIGN SYSTEM
+   Cartoon arcade aesthetic with watermelon-bright colors
+   Retro-arcade meets modern meme style
 */
 
 :root {
-  /* Pure white background with crisp black text */
-  --background: 0 0% 100%;
-  --foreground: 0 0% 0%;
+  /* FONT SYSTEM - Chunky cartoon fonts */
+  --font-primary: 'Fredoka', 'Comic Sans MS', cursive, sans-serif;
+  --font-heading: 'Luckiest Guy', 'Bangers', cursive, sans-serif;
+  --font-arcade: 'Bangers', cursive, sans-serif;
 
-  /* Clean white cards with black text */
+  /* WATERMELON-BRIGHT COLOR PALETTE */
+  /* Vibrant reds */
+  --color-red-bright: 0 85% 55%;
+  --color-red-deep: 355 75% 45%;
+
+  /* Electric greens */
+  --color-green-bright: 145 80% 55%;
+  --color-green-lime: 90 75% 60%;
+
+  /* Hot pinks */
+  --color-pink-hot: 330 85% 65%;
+  --color-pink-neon: 320 80% 70%;
+
+  /* Clean whites and blacks */
+  --color-white: 0 0% 100%;
+  --color-black: 0 0% 0%;
+  --color-off-white: 50 20% 98%;
+
+  /* Game UI Colors */
+  --background: 145 80% 95%;
+  --foreground: 0 0% 10%;
+
   --card: 0 0% 100%;
-  --card-foreground: 0 0% 0%;
+  --card-foreground: 0 0% 10%;
 
-  /* Popovers with white background */
-  --popover: 0 0% 100%;
-  --popover-foreground: 0 0% 0%;
-
-  /* Primary: Black with white text */
-  --primary: 0 0% 0%;
+  --primary: 330 85% 65%;
   --primary-foreground: 0 0% 100%;
 
-  /* Secondary: Light gray background with black text */
-  --secondary: 0 0% 97%;
-  --secondary-foreground: 0 0% 0%;
+  --secondary: 145 80% 55%;
+  --secondary-foreground: 0 0% 10%;
 
-  /* Muted: Subtle gray with darker text */
-  --muted: 0 0% 96%;
+  --accent: 0 85% 55%;
+  --accent-foreground: 0 0% 100%;
+
+  --muted: 145 40% 85%;
   --muted-foreground: 0 0% 40%;
 
-  /* Accent: Light gray */
-  --accent: 0 0% 96%;
-  --accent-foreground: 0 0% 0%;
-
-  /* Destructive: Clean red */
-  --destructive: 0 70% 50%;
+  --destructive: 0 85% 55%;
   --destructive-foreground: 0 0% 100%;
 
-  /* Borders: Subtle gray */
-  --border: 0 0% 90%;
-  --input: 0 0% 90%;
-  --ring: 0 0% 0%;
+  --border: 0 0% 10%;
+  --input: 0 0% 100%;
+  --ring: 330 85% 65%;
 
-  /* Minimal rounded corners */
-  --radius: 0.375rem;
+  /* Cartoon rounded corners */
+  --radius: 1rem;
 
-  /* Sidebar: Clean white with black text */
+  /* Game-specific colors */
+  --slobber-color: 50 25% 85%;
+  --dog-brown: 30 40% 50%;
+  --score-gold: 45 95% 55%;
+
+  /* Sidebar (not used in game) */
   --sidebar-background: 0 0% 100%;
   --sidebar-foreground: 0 0% 0%;
-  --sidebar-primary: 0 0% 0%;
+  --sidebar-primary: 330 85% 65%;
   --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 0 0% 96%;
+  --sidebar-accent: 145 80% 55%;
   --sidebar-accent-foreground: 0 0% 0%;
-  --sidebar-border: 0 0% 90%;
-  --sidebar-ring: 0 0% 0%;
+  --sidebar-border: 0 0% 10%;
+  --sidebar-ring: 330 85% 65%;
 }
 
 .dark {
@@ -168,36 +187,208 @@ All colors MUST be HSL.
   border-color: hsl(var(--border));
 }
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
 body {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
-  font-feature-settings: "rlig" 1, "calt" 1;
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  overflow-x: hidden;
 }
 
-/* Minimal, clean typography */
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 600;
-  letter-spacing: -0.025em;
+/* CARTOON ARCADE TYPOGRAPHY */
+h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: 0.02em;
   color: hsl(var(--foreground));
+  text-transform: uppercase;
+  text-shadow: 4px 4px 0 hsl(var(--color-black)), 6px 6px 0 hsl(var(--primary));
 }
 
-/* Clean button styles */
-button {
+h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: hsl(var(--foreground));
+  text-transform: uppercase;
+  text-shadow: 3px 3px 0 hsl(var(--color-black)), 4px 4px 0 hsl(var(--secondary));
+}
+
+h3 {
+  font-family: var(--font-arcade);
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  color: hsl(var(--foreground));
+  text-transform: uppercase;
+  text-shadow: 2px 2px 0 hsl(var(--color-black));
+}
+
+h4, h5, h6 {
+  font-family: var(--font-primary);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: hsl(var(--foreground));
+  text-shadow: 1px 1px 0 hsl(var(--color-black));
+}
+
+h4 {
+  font-size: clamp(1.25rem, 3vw, 2rem);
+}
+
+h5 {
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+}
+
+h6 {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+}
+
+p {
+  font-family: var(--font-primary);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
   font-weight: 500;
 }
 
-/* Subtle shadows for depth */
-.shadow-sm {
-  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+strong, b {
+  font-weight: 700;
+  color: hsl(var(--accent));
 }
 
-.shadow {
-  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+a {
+  color: hsl(var(--primary));
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
 }
 
-.shadow-md {
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+a:hover {
+  color: hsl(var(--accent));
+  transform: scale(1.05);
+}
+
+/* CARTOON BUTTON STYLES */
+button {
+  font-family: var(--font-arcade);
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 4px solid hsl(var(--color-black));
+  border-radius: var(--radius);
+  padding: 1rem 2rem;
+  transition: all 0.15s ease;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 0 hsl(var(--color-black)), 0 8px 12px rgba(0, 0, 0, 0.3);
+  position: relative;
+  user-select: none;
+}
+
+button:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 0 hsl(var(--color-black)), 0 12px 16px rgba(0, 0, 0, 0.4);
+}
+
+button:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 hsl(var(--color-black)), 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* FORM ELEMENTS */
+input, select, textarea {
+  font-family: var(--font-primary);
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0.75rem 1rem;
+  border: 3px solid hsl(var(--color-black));
+  border-radius: calc(var(--radius) - 0.25rem);
+  background: hsl(var(--input));
+  color: hsl(var(--foreground));
+  transition: all 0.2s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: hsl(var(--primary));
+  box-shadow: 0 0 0 3px hsla(var(--primary) / 0.3);
+  transform: scale(1.02);
+}
+
+/* CARTOON SHADOWS AND EFFECTS */
+.shadow-cartoon-sm {
+  box-shadow: 0 3px 0 hsl(var(--color-black)), 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.shadow-cartoon {
+  box-shadow: 0 4px 0 hsl(var(--color-black)), 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.shadow-cartoon-lg {
+  box-shadow: 0 6px 0 hsl(var(--color-black)), 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* ARCADE ANIMATIONS */
+@keyframes pulse-arcade {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes wobble {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-3deg); }
+  75% { transform: rotate(3deg); }
+}
+
+@keyframes drip {
+  0% { transform: translateY(-10px); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0.7; }
+}
+
+@keyframes splash {
+  0% { transform: scale(0) rotate(0deg); opacity: 1; }
+  100% { transform: scale(2) rotate(180deg); opacity: 0; }
+}
+
+@keyframes bounce-in {
+  0% { transform: scale(0); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* UTILITY CLASSES */
+.pulse-arcade {
+  animation: pulse-arcade 2s ease-in-out infinite;
+}
+
+.wobble {
+  animation: wobble 0.5s ease-in-out infinite;
+}
+
+.text-stroke {
+  -webkit-text-stroke: 2px hsl(var(--color-black));
+  paint-order: stroke fill;
 }
